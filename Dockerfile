@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-scipy \
         rsync \
         unzip \
+        git \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -63,4 +64,4 @@ EXPOSE 8888
 
 WORKDIR "/notebooks"
 
-# CMD ["/run_jupyter.sh"]
+CMD ["/run_jupyter.sh"]
