@@ -5,11 +5,11 @@ Based on https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/d
 
 ###To run a single instance locally do:
 ```{bash}
-docker run -p 8080:8080 -it oduerr/tf_docker
+docker run -p 8080:8080 -p 8081:8081 -it oduerr/tf_docker
 ```
 and open the browser pointing at [http://localhost:8080/](http://localhost:8080/). 
 
-###To run many instances 
+###Torun many instances 
 with different ports on a server (e.g. on the Amazon Web Server). Start multiple containers mapping to port 8080.
 ```
 docker run  -p 8081:8080 oduerr/tf_docker&
@@ -18,7 +18,7 @@ docker run  -p 8082:8080 oduerr/tf_docker&
 
 Or better use a loop
 ```
-for i in `seq 8085 8090`; do docker run  -p $i:8080 oduerr/tf_docker&  done
+for i in `seq 8800 8850`; do docker run -d -p $i:8080 oduerr/tf_docker;  done;
 ```
 
 ### Notes using AWS
