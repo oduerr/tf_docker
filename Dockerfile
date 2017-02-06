@@ -1,72 +1,50 @@
-FROM ubuntu:14.04
+FROM tensorflow/tensorflow:0.12.1
 
-MAINTAINER Craig Citro <craigcitro@google.com>
+MAINTAINER oliver duerr <dueo@zhaw.ch>
 
-# Pick up some TF dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
-        curl \
-        libfreetype6-dev \
-        libpng12-dev \
-        libzmq3-dev \
-        pkg-config \
-        python \
-        python-dev \
-        python-numpy \
-        python-pip \
-        python-scipy \
-        rsync \
-        unzip \
-        git \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+                python-numpy \
+                python-dev \
+                cmake \
+                zlib1g-dev \
+                libjpeg-dev \
+                xvfb \
+                libav-tools \
+                xorg-dev \
+                python-opengl \
+                libboost-all-dev \
+                libsdl2-dev \
+                swig \
+                git
 
-RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py && \
-    rm get-pip.py
+RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
 
-RUN pip --no-cache-dir install \
-        ipykernel \
-        jupyter \
-        matplotlib \
-        pandas \
-        && \
-    python -m ipykernel.kernelspec
+#RUN pip --no-cache-dir install tflearn
 
-ENV TENSORFLOW_VERSION 0.10.0rc0
+RUN pip install git+https://github.com/tflearn/tflearn.git
 
-# --- DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
-# These lines will be edited automatically by parameterized_docker_build.sh. #
-# COPY _PIP_FILE_ /
-# RUN pip --no-cache-dir install /_PIP_FILE_
-# RUN rm -f /_PIP_FILE_
+RUN pip install keras
 
-# Install TensorFlow CPU version from central repo
-RUN pip --no-cache-dir install \
-    http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-${TENSORFLOW_VERSION}-cp27-none-linux_x86_64.whl
-# --- ~ DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
+# Clean
+RUN apt-get clean && \
+rm -rf /var/lib/apt/lists/*
 
+# Default directory that will be saved by htcondor
+#RUN mkdir /tmp/results
+#RUN nvidia-smi -f /tmp/temp.txt
 
-# Installing TF-learn
-RUN pip --no-cache-dir install tflearn
-
-# Set up our notebook config.
-COPY jupyter_notebook_config.py /root/.jupyter/
-
-# Copy sample notebooks.
-COPY notebooks /notebooks
-
-# Jupyter has issues with being run directly:
-#   https://github.com/ipython/ipython/issues/7062
-# We just add a little wrapper script.
-COPY run_jupyter.sh /
+# COPY -> to copy files/data from to localmachine
 
 # TensorBoard
 EXPOSE 6006
 # IPython
-EXPOSE 8080
+EXPOSE 8888
 
 WORKDIR "/notebooks"
 
+# Test GPS
+#CMD echo "Starting GPS"
+#CMD ["python python/gps/gps_main.py"]
+
+# Start Jupyter Notebook for interactive mode
 CMD ["/run_jupyter.sh"]
