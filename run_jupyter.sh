@@ -14,5 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
+# To enable widget such as sliders
+jupyter nbextension enable --py --sys-prefix widgetsnbextension 
+jupyter notebook "$@" --NotebookApp.token='\"tensochiefs_rulez\"'
 
-jupyter notebook "$@"
