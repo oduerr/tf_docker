@@ -48,7 +48,7 @@ WORKDIR "/notebooks"
 
 # Start Jupyter Notebook for interactive mode
 CMD ["jupyter nbextension enable --py --sys-prefix widgetsnbextension"]
-CMD ["jupyter notebook "$@" --NotebookApp.token='\"tensochiefs_rulez\"'"]
+#CMD ["jupyter notebook "$@" --NotebookApp.token='\"tensochiefs_rulez\"'"]
 
 
-#CMD ["/run_jupyter_2.sh"]
+CMD ["/run_jupyter_2.sh"]
