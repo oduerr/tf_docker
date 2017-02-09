@@ -47,8 +47,8 @@ WORKDIR "/notebooks"
 #CMD ["python python/gps/gps_main.py"]
 
 # Start Jupyter Notebook for interactive mode
-CMD ["jupyter nbextension enable --py --sys-prefix widgetsnbextension"]
+#CMD ["jupyter nbextension enable --py --sys-prefix widgetsnbextension"]
 #CMD ["jupyter notebook "$@" --NotebookApp.token='\"tensochiefs_rulez\"'"]
 
-
+COPY run_jupyter_2.sh /
 CMD ["/run_jupyter_2.sh"]
