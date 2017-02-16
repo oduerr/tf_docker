@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:0.12.1
+FROM tensorflow/tensorflow:latest
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
