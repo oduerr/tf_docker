@@ -1,21 +1,6 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:1.0.0-py3
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
-
-RUN apt-get update && apt-get install -y \
-                python-numpy \
-                python-dev \
-                cmake \
-                zlib1g-dev \
-                libjpeg-dev \
-                xvfb \
-                libav-tools \
-                xorg-dev \
-                python-opengl \
-                libboost-all-dev \
-                libsdl2-dev \
-                swig \
-                git
 
 RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
 
