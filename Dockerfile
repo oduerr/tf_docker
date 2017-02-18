@@ -6,7 +6,7 @@ RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
 
 #RUN pip --no-cache-dir install tflearn
 
-RUN pip install git+https://github.com/tflearn/tflearn.git
+#RUN pip install git+https://github.com/tflearn/tflearn.git
 
 RUN pip install keras
 
