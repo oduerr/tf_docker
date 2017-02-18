@@ -10,6 +10,8 @@ RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
 
 RUN pip install keras
 
+RUN pip install cpickle
+
 # Clean
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
