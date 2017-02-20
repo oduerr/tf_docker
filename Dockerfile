@@ -1,5 +1,4 @@
-FROM tensorflow/tensorflow:1.0.0-py3
-
+FROM tensorflow/tensorflow:1.0.0-gpu-py3
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
 RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
