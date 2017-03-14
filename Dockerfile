@@ -1,29 +1,16 @@
-FROM tensorflow/tensorflow:0.12.1
+FROM tensorflow/tensorflow:1.0.0-py3
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
-
-RUN apt-get update && apt-get install -y \
-                python-numpy \
-                python-dev \
-                cmake \
-                zlib1g-dev \
-                libjpeg-dev \
-                xvfb \
-                libav-tools \
-                xorg-dev \
-                python-opengl \
-                libboost-all-dev \
-                libsdl2-dev \
-                swig \
-                git
 
 RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
 
 #RUN pip --no-cache-dir install tflearn
 
-RUN pip install git+https://github.com/tflearn/tflearn.git
+#RUN pip install git+https://github.com/tflearn/tflearn.git
 
 RUN pip install keras
+
+#RUN pip install cpickle no cpickle for python3
 
 # Clean
 RUN apt-get clean && \
