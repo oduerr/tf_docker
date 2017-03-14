@@ -1,15 +1,15 @@
 # tf_docker
 
-##Docker container for tutorials on tensorflow. 
+## Docker container for tutorials on tensorflow. 
 Based on https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/docker
 
-###To run a single instance locally do:
+### To run a single instance locally do:
 ```{bash}
 docker run -p 8080:8888 -p 8081:6006 -it oduerr/tf_docker
 ```
 and open the browser pointing at [http://localhost:8080/](http://localhost:8080/). 
 
-###Torun many instances 
+### Torun many instances 
 with different ports on a server (e.g. on the Amazon Web Server). Start multiple containers mapping to port 8080.
 ```
 docker run  -p 8081:8888 oduerr/tf_docker&
