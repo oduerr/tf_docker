@@ -1,16 +1,26 @@
 FROM tensorflow/tensorflow:1.0.0-py3
 
+# Removing some notebook which caused confusion
+RUN rm /notebooks/1_hello_tensorflow.ipynb
+RUN rm /notebooks/2_getting_started.ipynb
+RUN rm /notebooks/3_mnist_from_scratch.ipynb
+
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
-RUN pip --no-cache-dir install ipykernel jupyter matplotlib pandas h5py
+RUN pip --no-cache-dir install \
+        ipykernel \
+        jupyter \
+        matplotlib \
+        pandas \
+        h5py \
+        keras \
+        tflearn
 
-#RUN pip --no-cache-dir install tflearn
+# RUN pip --no-cache-dir install tflearn
+# RUN pip install git+https://github.com/tflearn/tflearn.git
+# RUN pip install keras
 
-#RUN pip install git+https://github.com/tflearn/tflearn.git
-
-RUN pip install keras
-
-#RUN pip install cpickle no cpickle for python3
+RUN apt-get update && apt-get install -y git
 
 # Clean
 RUN apt-get clean && \
@@ -21,6 +31,7 @@ rm -rf /var/lib/apt/lists/*
 #RUN nvidia-smi -f /tmp/temp.txt
 
 # COPY -> to copy files/data from to localmachine
+COPY notebooks /notebooks
 
 # TensorBoard
 EXPOSE 6006
@@ -28,14 +39,8 @@ EXPOSE 6006
 EXPOSE 8888
 
 WORKDIR "/notebooks"
+COPY notebooks /notebooks
 
-# Test GPS
-#CMD echo "Starting GPS"
-#CMD ["python python/gps/gps_main.py"]
-
-# Start Jupyter Notebook for interactive mode
-#CMD ["jupyter nbextension enable --py --sys-prefix widgetsnbextension"]
-#CMD ["jupyter notebook "$@" --NotebookApp.token='\"tensochiefs_rulez\"'"]
 
 COPY run_jupyter_2.sh /
 CMD ["/run_jupyter_2.sh"]
