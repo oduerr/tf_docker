@@ -13,7 +13,8 @@ RUN pip --no-cache-dir install \
         pandas \
         h5py \
         keras \
-        tflearn
+        tflearn \
+        ggplot
 
 # RUN pip --no-cache-dir install tflearn
 # RUN pip install git+https://github.com/tflearn/tflearn.git
