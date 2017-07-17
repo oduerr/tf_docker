@@ -1,4 +1,5 @@
-FROM tensorflow/tensorflow:1.0.0-gpu-py3
+FROM tensorflow/tensorflow:1.2.1-gpu-py3
+#FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 RUN rm /notebooks/1_hello_tensorflow.ipynb
 RUN rm /notebooks/2_getting_started.ipynb
@@ -12,7 +13,7 @@ RUN pip --no-cache-dir install \
         matplotlib \
         pandas \
         h5py \
-        keras \
+#        keras \
         tflearn \
         ggplot
 
