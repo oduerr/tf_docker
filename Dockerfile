@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.2.1-gpu-py3
+FROM tensorflow/tensorflow:latest-gpu
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 RUN rm /notebooks/1_hello_tensorflow.ipynb
