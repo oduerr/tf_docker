@@ -14,7 +14,7 @@ RUN pip --no-cache-dir install \
         matplotlib \
         pandas \
         h5py \
-#        keras \
+        keras \
         tflearn \
         ggplot
 
