@@ -1,4 +1,4 @@
-#Added this to trigger rebuild on docker hub
+# Added this to trigger rebuild on docker hub hopefully to tf 1.5
 FROM tensorflow/tensorflow:latest-gpu-py3
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
