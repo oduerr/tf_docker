@@ -35,6 +35,9 @@ RUN pip3 install rpy2
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
+# Some nice stuff for R
+RUN R -e "install.packages('tidyverse', repos = 'https://cloud.r-project.org')"
+
 # Default directory that will be saved by htcondor
 #RUN mkdir /tmp/results
 #RUN nvidia-smi -f /tmp/temp.txt
