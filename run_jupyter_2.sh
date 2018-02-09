@@ -16,5 +16,5 @@
 
 # To enable widget such as sliders
 jupyter nbextension enable --py --sys-prefix widgetsnbextension 
-jupyter notebook "$@" --NotebookApp.token=tensorchiefs
+jupyter notebook "$@" --allow-root --NotebookApp.token=tensorchiefs
 
