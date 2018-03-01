@@ -1,5 +1,5 @@
-# Added this to trigger rebuild on docker hub hopefully to tf 1.5
-FROM tensorflow/tensorflow:latest-gpu-py3
+#FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:latest-cpu-py3
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 RUN rm /notebooks/1_hello_tensorflow.ipynb
@@ -14,7 +14,7 @@ RUN pip --no-cache-dir install \
         matplotlib \
         pandas \
         h5py \
-#        keras \
+        keras \
         tflearn \
         ggplot
 
@@ -28,12 +28,25 @@ RUN gpg -a --export E084DAB9 | apt-key add -
 
 RUN apt-get update && apt-get install -y git
 RUN apt-get -y install r-base
+# Pydot for Keras for Beate
+RUN apt-get -y install python-pydot python-pydot-ng graphviz #For Keras model visualization
+RUN pip3 install pydot
+RUN pip3 install graphviz
+
 #RUN apt-get install libzmq3-de
 RUN pip3 install rpy2
+
+# For toc in notebook
+RUN pip install jupyter_contrib_nbextensions
+RUN jupyter contrib nbextension install --user
+RUN pip install jupyter_nbextensions_configurator
 
 # Clean
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
+
+# Some nice stuff for R
+RUN R -e "install.packages('tidyverse', repos = 'https://cloud.r-project.org')"
 
 # Default directory that will be saved by htcondor
 #RUN mkdir /tmp/results
