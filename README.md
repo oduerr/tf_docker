@@ -4,7 +4,7 @@
 Based on https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/docker
 
 ## Building the container 
-This repository is linked to dockerhub, however sometimes you during debugging it might be faster to localy build. You can do this via 
+This repository is linked to dockerhub, however sometimes during debugging it might be faster to localy build the container. You can do this via 
 
 ```
 docker build https://raw.githubusercontent.com/oduerr/tf_docker/cpu_r/Dockerfile
