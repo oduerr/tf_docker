@@ -36,6 +36,9 @@ RUN pip3 install graphviz
 #RUN apt-get install libzmq3-de
 RUN pip3 install rpy2
 
+# jupyterlab
+RUN pip install jupyterlab
+
 # For toc in notebook
 RUN pip install jupyter_contrib_nbextensions
 RUN jupyter contrib nbextension install --user
@@ -65,4 +68,6 @@ COPY notebooks /notebooks
 
 
 COPY run_jupyter_2.sh /
+COPY run_jlab.py /
+
 CMD ["/run_jupyter_2.sh"]
