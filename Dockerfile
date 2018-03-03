@@ -68,6 +68,6 @@ COPY notebooks /notebooks
 
 
 COPY run_jupyter_2.sh /
-COPY run_jlab.py /
+COPY run_jlab.sh /
 
 CMD ["/run_jupyter_2.sh"]
