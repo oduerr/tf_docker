@@ -17,6 +17,7 @@ RUN pip --no-cache-dir install \
         h5py \
         keras \
         tflearn \
+        scikit-image \
         ggplot
 
 # RUN pip --no-cache-dir install tflearn
