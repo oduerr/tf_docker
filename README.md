@@ -1,4 +1,4 @@
-# tf_docker
+# tf_docker  
 
 ##Docker container for tutorials on tensorflow. 
 Based on https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/docker
@@ -36,5 +36,6 @@ docker run --net=host -d -e CONFIGPROXY_AUTH_TOKEN=$TOKEN \
            -v /var/run/docker.sock:/docker.sock \
            jupyter/tmpnb python orchestrate.py --image='oduerr/tf_docker'
 ```
+..
 
 
