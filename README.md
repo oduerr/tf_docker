@@ -1,4 +1,4 @@
-# tf_docker
+# tf_docker 
 
 ## Docker container for tutorials on tensorflow. 
 Based on https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/docker
