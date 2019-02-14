@@ -3,9 +3,9 @@
 FROM tensorflow/tensorflow:latest-py3
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
-RUN rm /notebooks/1_hello_tensorflow.ipynb
-RUN rm /notebooks/2_getting_started.ipynb
-RUN rm /notebooks/3_mnist_from_scratch.ipynb
+#RUN rm /notebooks/1_hello_tensorflow.ipynb
+#RUN rm /notebooks/2_getting_started.ipynb
+#RUN rm /notebooks/3_mnist_from_scratch.ipynb
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
