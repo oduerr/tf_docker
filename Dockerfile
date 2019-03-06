@@ -1,6 +1,5 @@
 #FROM tensorflow/tensorflow:latest-gpu-py3
 # Added . to force rebuild
-#FROM tensorflow/tensorflow:latest-py3
 FROM tensorflow/tensorflow:latest-gpu-py3
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
@@ -66,8 +65,8 @@ EXPOSE 6006
 # IPython
 EXPOSE 8888
 
-#WORKDIR "/notebooks"
-#COPY notebooks /notebooks
+WORKDIR "/notebooks"
+COPY notebooks /notebooks
 
 
 COPY run_jupyter_2.sh /
