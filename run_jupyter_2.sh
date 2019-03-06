@@ -17,5 +17,5 @@
 # To enable widget such as sliders
 jupyter nbextension enable --py --sys-prefix widgetsnbextension 
 jupyter-nbextensions_configurator enable #Allows the user to config notebooks
-jupyter notebook "$@" --allow-root --NotebookApp.token=tensorchiefs
+jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --NotebookApp.token=tensorchiefs
 

@@ -1,10 +1,11 @@
 #FROM tensorflow/tensorflow:latest-gpu-py3
-FROM tensorflow/tensorflow:latest-gpu-py3
+# Added . to force rebuild
+FROM tensorflow/tensorflow:latest-py3
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
-RUN rm /notebooks/1_hello_tensorflow.ipynb
-RUN rm /notebooks/2_getting_started.ipynb
-RUN rm /notebooks/3_mnist_from_scratch.ipynb
+#RUN rm /notebooks/1_hello_tensorflow.ipynb
+#RUN rm /notebooks/2_getting_started.ipynb
+#RUN rm /notebooks/3_mnist_from_scratch.ipynb
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
@@ -16,6 +17,7 @@ RUN pip --no-cache-dir install \
         h5py \
         keras \
         tflearn \
+        scikit-image \
         ggplot
 
 # RUN pip --no-cache-dir install tflearn
