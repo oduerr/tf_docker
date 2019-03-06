@@ -1,6 +1,6 @@
 #FROM tensorflow/tensorflow:latest-gpu-py3
 # Added . to force rebuild
-FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:latest-gpu-py3-jupyter
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 #RUN rm /notebooks/1_hello_tensorflow.ipynb
