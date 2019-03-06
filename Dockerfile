@@ -67,7 +67,7 @@ EXPOSE 6006
 EXPOSE 8888
 
 WORKDIR "/notebooks"
-COPY notebooks /notebooks
+#COPY notebooks /notebooks
 
 
 COPY run_jupyter_2.sh /
