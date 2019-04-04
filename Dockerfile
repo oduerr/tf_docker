@@ -18,6 +18,8 @@ RUN pip --no-cache-dir install \
         keras \
         tflearn \
         scikit-image \
+        seaborn \ 
+        tensorflow-probability \
         ggplot
 
 # RUN pip --no-cache-dir install tflearn
