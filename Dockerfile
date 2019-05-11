@@ -19,6 +19,7 @@ RUN pip --no-cache-dir install \
         tflearn \
         scikit-image \
         seaborn \ 
+        sklearn \
         tfp-nightly \
         ggplot
 
