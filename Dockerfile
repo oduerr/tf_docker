@@ -11,38 +11,31 @@ MAINTAINER oliver duerr <dueo@zhaw.ch>
 
 RUN pip --no-cache-dir install \
         ipykernel \
-        jupyter \
         matplotlib \
         pandas \
         h5py \
-        keras \
-        tflearn \
         scikit-image \
         seaborn \ 
         sklearn \
         tensorflow-probability==0.8.0-rc0 \
-        ggplot
 
 # RUN pip --no-cache-dir install tflearn
 # RUN pip install git+https://github.com/tflearn/tflearn.git
 # RUN pip install keras
 
-RUN sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
-RUN gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-RUN gpg -a --export E084DAB9 | apt-key add -
+# RUN sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+# RUN gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+# RUN gpg -a --export E084DAB9 | apt-key add -
 
-RUN apt-get update && apt-get install -y git
-RUN apt-get -y install r-base
-# Pydot for Keras for Beate
-RUN apt-get -y install python-pydot python-pydot-ng graphviz #For Keras model visualization
-RUN pip3 install pydot
-RUN pip3 install graphviz
+# RUN apt-get update && apt-get install -y git
+# RUN apt-get -y install r-base
+# # Pydot for Keras for Beate
+# RUN apt-get -y install python-pydot python-pydot-ng graphviz #For Keras model visualization
+# RUN pip3 install pydot
+# RUN pip3 install graphviz
 
 #RUN apt-get install libzmq3-de
 RUN pip3 install rpy2
-
-# jupyterlab
-RUN pip install jupyterlab
 
 # For toc in notebook
 RUN pip install jupyter_contrib_nbextensions
