@@ -1,6 +1,6 @@
 #FROM tensorflow/tensorflow:latest-gpu-py3
 # Added . to force rebuild
-FROM tensorflow/tensorflow:2.0.0a0-py3 
+FROM tensorflow/tensorflow:2.0.0-rc0 
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 #RUN rm /notebooks/1_hello_tensorflow.ipynb
@@ -20,7 +20,7 @@ RUN pip --no-cache-dir install \
         scikit-image \
         seaborn \ 
         sklearn \
-        tfp-nightly \
+        tensorflow-probability==0.8.0-rc0 \
         ggplot
 
 # RUN pip --no-cache-dir install tflearn
