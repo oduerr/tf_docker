@@ -17,7 +17,7 @@ RUN pip3 --no-cache-dir install \
         scikit-image \
         seaborn \ 
         sklearn \
-        tensorflow-probability==0.8.0-rc0 \
+        tensorflow-probability==0.8.0-rc0 
 
 # RUN pip --no-cache-dir install tflearn
 # RUN pip install git+https://github.com/tflearn/tflearn.git
@@ -35,7 +35,7 @@ RUN pip3 --no-cache-dir install \
 # RUN pip3 install graphviz
 
 #RUN apt-get install libzmq3-de
-RUN pip3 install rpy2
+#RUN pip3 install rpy2
 
 # For toc in notebook
 RUN pip3 install jupyter_contrib_nbextensions
