@@ -1,6 +1,6 @@
 #FROM tensorflow/tensorflow:latest-gpu-py3
 # Added . to force rebuild
-FROM tensorflow/tensorflow:2.0.0rc0-jupyter
+FROM tensorflow/tensorflow:2.0.0rc0-py3-jupyter
 #FROM tensorflow/tensorflow:1.0.0-gpu-py3
 # Removing some notebook which caused confusion
 #RUN rm /notebooks/1_hello_tensorflow.ipynb
@@ -9,7 +9,7 @@ FROM tensorflow/tensorflow:2.0.0rc0-jupyter
 
 MAINTAINER oliver duerr <dueo@zhaw.ch>
 
-RUN pip --no-cache-dir install \
+RUN pip3 --no-cache-dir install \
         ipykernel \
         matplotlib \
         pandas \
@@ -38,16 +38,16 @@ RUN pip --no-cache-dir install \
 RUN pip3 install rpy2
 
 # For toc in notebook
-RUN pip install jupyter_contrib_nbextensions
+RUN pip3 install jupyter_contrib_nbextensions
 RUN jupyter contrib nbextension install --user
-RUN pip install jupyter_nbextensions_configurator
+RUN pip3 install jupyter_nbextensions_configurator
 
 # Clean
 RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
 # Some nice stuff for R
-RUN R -e "install.packages('tidyverse', repos = 'https://cloud.r-project.org')"
+#RUN R -e "install.packages('tidyverse', repos = 'https://cloud.r-project.org')"
 
 # Default directory that will be saved by htcondor
 #RUN mkdir /tmp/results
